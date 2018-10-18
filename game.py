@@ -9,7 +9,6 @@ def remove_punct(text):
     marks from a string. Spaces do not count as punctuation and should
     not be removed. The funcion takes a string and returns a new string
     which does not contain any puctuation. For example:
-
     >>> remove_punct("Hello, World!")
     'Hello World'
     >>> remove_punct("-- ...Hey! -- Yes?!...")
@@ -30,7 +29,6 @@ def remove_spaces(text):
     """This function is used to remove leading and trailing spaces from a string.
     It takes a string and returns a new string with does not have leading and
     trailing spaces. For example:
-
     >>> remove_spaces("  Hello!  ")
     'Hello!'
     >>> remove_spaces("  Python  is  easy!   ")
@@ -51,7 +49,6 @@ def normalise_input(user_input):
     """This function removes all punctuation, leading and trailing
     spaces from a string, and converts the string to lower case.
     For example:
-
     >>> normalise_input("  Go south! ")
     'go south'
     >>> normalise_input("!!! tAkE,. LAmp!?! ")
@@ -73,6 +70,7 @@ def display_room(room):
     description of the room and a blank line again. If there are any items
     in the room, the list of items is printed next followed by a blank line
     (use print_room_items() for this). For example:
+    
     >>> display_room(rooms["Office"])
     <BLANKLINE>
     THE GENERAL OFFICE
@@ -82,8 +80,6 @@ def display_room(room):
     in their eyes. If you go west you can return to the
     Queen's Buildings.
     <BLANKLINE>
-
-    Note: <BLANKLINE> here means that doctest should expect a blank line.
     """
     
     print()
@@ -124,13 +120,10 @@ def print_menu(exits):
     menu should, for each exit, call the function print_menu_line() to print
     the information about each exit in the appropriate format. The room into
     which an exit leads is obtained using the function exit_leads_to().
-
     For example, the menu of exits from Reception may look like this:
-
     print("You can:")
     print_menu_line(direction,exit_leads_to(exits,direction))
     print("Where do you want to go?")
-
     You can:
     Go EAST to your personal tutor's office.
     Go WEST to the parking lot.
@@ -148,7 +141,6 @@ def print_menu(exits):
     print("Where do you want to go?")
 """
     
-
 """
 def is_valid_exit(exits, user_input):
     """This function checks, given a dictionary "exits" (see map.py) and
@@ -245,3 +237,4 @@ def main():
 # See https://docs.python.org/3.4/library/__main__.html for explanation
 if __name__ == "__main__":
     main()
+
