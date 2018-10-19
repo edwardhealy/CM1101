@@ -16,7 +16,7 @@ def remove_punct(text):
     >>> remove_punct(",go!So.?uTh")
     'goSouTh'
     """
-    punctless= "" #this will hold the string when the punctuation is removed
+    punctless= "" 
 
     for char in text:
         if char not in string.punctuation:
@@ -97,24 +97,29 @@ def exit_leads_to(exits, direction):
     >>> exit_leads_to(rooms["Tutor"]["exits"], "west")
     'Reception'
     """
+    
     return rooms[exits[direction]]["name"]
 
 
 def print_menu_line(direction, leads_to):
-    """
+    """This function prints a line of a menu of exits. It takes two strings: a
+    direction (the name of an exit) and the name of the room into which it
+    leads (leads_to), and should print a menu line in the following format:
+
+    Go <EXIT NAME UPPERCASE> to <where it leads>.
+
     For example:
     >>> print_menu_line("east", "you personal tutor's office")
     Go EAST to you personal tutor's office.
     >>> print_menu_line("south", "MJ and Simon's room")
     Go SOUTH to MJ and Simon's room.
-    """
 
-    print("Go " + str.upper(direction) + " to " + leads_to + ".")
+    """
+    print("Go " + direction.upper() + " to " + leads_to + ".")
 
 
 
 def print_menu(exits):
-
     """This function displays the menu of available exits to the player. The
     argument exits is a dictionary of exits as exemplified in map.py. The
     menu should, for each exit, call the function print_menu_line() to print
@@ -131,13 +136,12 @@ def print_menu(exits):
     Where do you want to go?
     """
     print("You can:")
-    for direction in exits: 
-        
-     print_menu_line(direction, exit_leads_to)        
-    
-    # COMPLETE THIS PART:
-    # Iterate over available exits:
-    #     and for each exit print the appropriate menu line
+    for direction in exits:
+    	exit_name = exit_leads_to(exits,direction)
+    	print_menu_line(direction, exit_name)
+        # COMPLETE THIS PART:
+        # Iterate over available exits
+        # and for each exit print the appropriate menu line
     print("Where do you want to go?")
 """
     
@@ -185,12 +189,11 @@ def menu(exits):
        
      print_menu(exits)
         
-    user_input=str(input())
-    user_input=normalise_input(user_input)
+     user_input=str(input())
+     user_input=normalise_input(user_input)
         
-    if is_valid_exit(exits, user_input) :
-            
-     return user_input
+     if is_valid_exit(exits, user_input) :
+     	return user_input
 
 
 """
